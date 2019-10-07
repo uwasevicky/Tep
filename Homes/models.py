@@ -26,3 +26,24 @@ class transfers (models.Model):
 	Date =models.DateField(max_length=10)
 	Time = models.TimeField(max_length=10)
 	status =models.CharField(max_length=10)
+class Payment (models.Model):
+	home = models.ForeignKey(Home, on_delete = models.CASCADE)
+	fees = models.IntegerField()
+	description = models.TextField()
+	date = models.DateField()
+	time = models.TimeField()
+	paymentMethod = models.CharField()
+	transctionNo = models.ForeignKey(Transction, on_delete = models.CASCADE)
+class Transction(models.Model):
+	fees = models.IntegerField()
+	termN0 =models.ForeignKey(Term, on_delete = models.CASCADE)
+	date =models.DateField()
+	time =models.TimeField()
+class Term(models.Model):
+	fees = models.IntegerField()
+	status = models.CharField(max_length=10)
+	Year = models.IntegerField()
+
+		
+
+		
